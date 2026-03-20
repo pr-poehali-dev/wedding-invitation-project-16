@@ -50,11 +50,11 @@ export default function Index() {
             Вы приглашены на свадьбу
           </p>
           <h1 className="font-cormorant font-light leading-none mb-2" style={{ color: "#c2717f", fontSize: "clamp(4rem, 12vw, 8rem)" }}>
-            Алексей
+            Никита
           </h1>
           <div className="font-cormorant italic my-2" style={{ color: "#c9a96e", fontSize: "3rem" }}>& </div>
           <h1 className="font-cormorant font-light leading-none mb-8" style={{ color: "#c2717f", fontSize: "clamp(4rem, 12vw, 8rem)" }}>
-            Мария
+            Татьяна
           </h1>
           <p className="font-cormorant italic font-light" style={{ color: "rgba(194,113,127,0.7)", fontSize: "1.5rem" }}>
             «Двое — одно сердце, одна судьба»
@@ -324,7 +324,7 @@ export default function Index() {
       {/* FOOTER */}
       <footer className="py-12 text-center" style={{ backgroundColor: "#fdf8f5", borderTop: "1px solid rgba(242,181,197,0.2)" }}>
         <FloralDecor className="mx-auto mb-4 opacity-20" />
-        <p className="font-cormorant italic text-2xl" style={{ color: "rgba(194,113,127,0.5)" }}>Алексей & Мария</p>
+        <p className="font-cormorant italic text-2xl" style={{ color: "rgba(194,113,127,0.5)" }}>Никита & Татьяна</p>
         <p className="font-raleway text-xs uppercase tracking-widest mt-2" style={{ color: "rgba(194,113,127,0.3)" }}>14 июня 2025 · Усадьба Роз</p>
       </footer>
     </div>
