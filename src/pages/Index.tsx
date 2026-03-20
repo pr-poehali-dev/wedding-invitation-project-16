@@ -145,7 +145,7 @@ export default function Index() {
           <Divider />
           <div className="grid md:grid-cols-2 gap-6 mt-10">
             {[
-              { icon: "Shirt", title: "Дресс-код", text: "Нежные пастельные оттенки. Просим воздержаться от белого цвета." },
+              { icon: "Shirt", title: "Дресс-код", text: "Приветствуются белые, зелёные и чёрные оттенки." },
               { icon: "Gift", title: "Подарки", text: "Лучший подарок — ваше присутствие. Если хочется порадовать — конверт будет кстати." },
             ].map((item, i) => (
               <div key={i} className="rounded-2xl p-8 text-left transition-shadow duration-300 hover:shadow-md" style={{ backgroundColor: "rgba(255,255,255,0.8)", border: "1px solid rgba(181,213,192,0.25)" }}>
