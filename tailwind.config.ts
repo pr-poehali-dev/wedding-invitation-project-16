@@ -20,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				cormorant: ['Cormorant Garamond', 'serif'],
-				raleway: ['Raleway', 'sans-serif'],
+				cormorant: ['Playfair Display', 'serif'],
+				raleway: ['Lato', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
