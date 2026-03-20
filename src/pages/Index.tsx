@@ -88,7 +88,7 @@ export default function Index() {
 
           <div className="grid md:grid-cols-3 gap-10 mt-10">
             {[
-              { icon: "Calendar", title: "14 июня 2025", sub: "Суббота" },
+              { icon: "Calendar", title: "24 июля 2026", sub: "Пятница" },
               { icon: "Clock", title: "В 15:00", sub: "Начало торжества" },
               { icon: "MapPin", title: "«Усадьба Роз»", sub: "ул. Садовая, 12" },
             ].map((item, i) => (
@@ -325,7 +325,7 @@ export default function Index() {
       <footer className="py-12 text-center" style={{ backgroundColor: "#fdf8f5", borderTop: "1px solid rgba(242,181,197,0.2)" }}>
         <FloralDecor className="mx-auto mb-4 opacity-20" />
         <p className="font-cormorant italic text-2xl" style={{ color: "rgba(194,113,127,0.5)" }}>Никита & Татьяна</p>
-        <p className="font-raleway text-xs uppercase tracking-widest mt-2" style={{ color: "rgba(194,113,127,0.3)" }}>14 июня 2025 · Усадьба Роз</p>
+        <p className="font-raleway text-xs uppercase tracking-widest mt-2" style={{ color: "rgba(194,113,127,0.3)" }}>24 июля 2026 · Усадьба Роз</p>
       </footer>
     </div>
   );
