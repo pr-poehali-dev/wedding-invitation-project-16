@@ -30,7 +30,13 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen font-raleway overflow-x-hidden" style={{ backgroundColor: "#f7faf8" }}>
+    <div className="min-h-screen font-raleway overflow-x-hidden" style={{
+        backgroundColor: "#f7faf8",
+        backgroundImage: `url(${HERO_IMAGE})`,
+        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}>
 
       {/* HERO */}
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
@@ -76,7 +82,7 @@ export default function Index() {
       </section>
 
       {/* МЕСТО И ВРЕМЯ */}
-      <section id="details" className="py-24 px-6" style={{ backgroundColor: "#f7faf8" }}>
+      <section id="details" className="py-24 px-6" style={{ backgroundColor: "rgba(247,250,248,0.88)" }}>
         <div className="max-w-3xl mx-auto text-center">
           <p className="font-raleway text-xs uppercase tracking-[0.4em] mb-4" style={{ color: "#8aab7a" }}>Когда и где</p>
           <h2 className="font-cormorant text-5xl md:text-6xl font-light mb-12" style={{ color: "#1a1a1a" }}>Место и время</h2>
@@ -103,7 +109,7 @@ export default function Index() {
       </section>
 
       {/* ПРОГРАММА */}
-      <section className="py-24 px-6" style={{ background: "linear-gradient(to bottom, rgba(232,244,237,0.3), #f7faf8)" }}>
+      <section className="py-24 px-6" style={{ background: "rgba(232,244,237,0.85)" }}>
         <div className="max-w-2xl mx-auto text-center">
           <p className="font-raleway text-xs uppercase tracking-[0.4em] mb-4" style={{ color: "#8aab7a" }}>Расписание дня</p>
           <h2 className="font-cormorant text-5xl md:text-6xl font-light mb-12" style={{ color: "#1a1a1a" }}>Программа</h2>
@@ -132,7 +138,7 @@ export default function Index() {
       </section>
 
       {/* РЕКОМЕНДАЦИИ */}
-      <section className="py-24 px-6" style={{ backgroundColor: "#f7faf8" }}>
+      <section className="py-24 px-6" style={{ backgroundColor: "rgba(247,250,248,0.88)" }}>
         <div className="max-w-3xl mx-auto text-center">
           <p className="font-raleway text-xs uppercase tracking-[0.4em] mb-4" style={{ color: "#8aab7a" }}>Для вашего удобства</p>
           <h2 className="font-cormorant text-5xl md:text-6xl font-light mb-12" style={{ color: "#1a1a1a" }}>Рекомендации</h2>
@@ -155,7 +161,7 @@ export default function Index() {
       </section>
 
       {/* ПОДТВЕРЖДЕНИЕ + ОПРОС */}
-      <section className="py-24 px-6" style={{ background: "linear-gradient(to bottom, rgba(232,244,237,0.3), #f7faf8)" }}>
+      <section className="py-24 px-6" style={{ background: "rgba(232,244,237,0.85)" }}>
         <div className="max-w-2xl mx-auto text-center">
           <p className="font-raleway text-xs uppercase tracking-[0.4em] mb-4" style={{ color: "#8aab7a" }}>Нам важно знать</p>
           <h2 className="font-cormorant text-5xl md:text-6xl font-light mb-12" style={{ color: "#1a1a1a" }}>Подтверждение</h2>
@@ -260,7 +266,7 @@ export default function Index() {
       </section>
 
       {/* КОНТАКТЫ */}
-      <section className="py-24 px-6" style={{ backgroundColor: "rgba(255,255,255,0.7)" }}>
+      <section className="py-24 px-6" style={{ backgroundColor: "rgba(247,250,248,0.88)" }}>
         <div className="max-w-xl mx-auto text-center">
           <p className="font-raleway text-xs uppercase tracking-[0.4em] mb-4" style={{ color: "#8aab7a" }}>Есть вопросы?</p>
           <h2 className="font-cormorant text-5xl md:text-6xl font-light mb-12" style={{ color: "#1a1a1a" }}>Контакты</h2>
@@ -290,7 +296,7 @@ export default function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="py-12 text-center" style={{ backgroundColor: "#f7faf8", borderTop: "1px solid rgba(181,213,192,0.25)" }}>
+      <footer className="py-12 text-center" style={{ backgroundColor: "rgba(232,244,237,0.85)", borderTop: "1px solid rgba(181,213,192,0.25)" }}>
         <FloralDecor className="mx-auto mb-4 opacity-20" />
         <p className="font-cormorant italic text-2xl" style={{ color: "rgba(26,26,26,0.5)" }}>Никита & Татьяна</p>
         <p className="font-raleway text-xs uppercase tracking-widest mt-2" style={{ color: "rgba(26,26,26,0.35)" }}>24 июля 2026 · Биробиджан</p>
