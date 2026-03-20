@@ -265,36 +265,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* КОНТАКТЫ */}
-      <section className="py-24 px-6" style={{ backgroundColor: "rgba(247,250,248,0.88)" }}>
-        <div className="max-w-xl mx-auto text-center">
-          <p className="font-raleway text-xs uppercase tracking-[0.4em] mb-4" style={{ color: "#8aab7a" }}>Есть вопросы?</p>
-          <h2 className="font-cormorant text-5xl md:text-6xl font-light mb-12" style={{ color: "#1a1a1a" }}>Контакты</h2>
-          <Divider />
-          <p className="font-cormorant italic text-xl mb-10" style={{ color: "rgba(26,26,26,0.65)" }}>
-            Если у вас возникли вопросы — свяжитесь с нашими организаторами
-          </p>
-          <div className="space-y-6">
-            {[
-              { icon: "Phone", label: "Организатор Анна", value: "+7 (900) 123-45-67", href: "tel:+79001234567" },
-              { icon: "MessageCircle", label: "Telegram", value: "@wedding_manager", href: "https://t.me/wedding_manager" },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center justify-center gap-4">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: "#e8f4ed" }}>
-                  <Icon name={item.icon} size={18} className="text-[#1a1a1a]" />
-                </div>
-                <div className="text-left">
-                  <p className="font-raleway text-xs uppercase tracking-widest mb-0.5" style={{ color: "rgba(26,26,26,0.4)" }}>{item.label}</p>
-                  <a href={item.href} className="font-cormorant text-2xl transition-colors" style={{ color: "#1a1a1a" }}>
-                    {item.value}
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* FOOTER */}
       <footer className="py-12 text-center" style={{ backgroundColor: "rgba(232,244,237,0.85)", borderTop: "1px solid rgba(181,213,192,0.25)" }}>
         <FloralDecor className="mx-auto mb-4 opacity-20" />
