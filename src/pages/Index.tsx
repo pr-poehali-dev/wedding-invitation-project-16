@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMAGE = "https://cdn.poehali.dev/projects/0b729fa5-4eae-4506-985d-85732f9b04a4/files/196ead58-abe4-413c-baca-6afbcc92ffca.jpg";
+const HERO_IMAGE = "https://cdn.poehali.dev/projects/0b729fa5-4eae-4506-985d-85732f9b04a4/files/b165ad50-197b-4c14-b676-f924a8c9cc1b.jpg";
 
 // Палитра: нежно-зелёный и белый
 // Основной: #5a8a6a | Акцент: #8aab7a | Фон: #f7faf8 | Светлый: #e8f4ed | Разделитель: #b5d5c0
