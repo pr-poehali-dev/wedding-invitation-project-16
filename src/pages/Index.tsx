@@ -92,8 +92,8 @@ export default function Index() {
           <div className="grid md:grid-cols-3 gap-10 mt-10">
             {[
               { icon: "Calendar", title: "24 июля 2026", sub: "Пятница" },
-              { icon: "Clock", title: "В 15:00", sub: "Начало торжества" },
-              { icon: "MapPin", title: "«Усадьба Роз»", sub: "ул. Садовая, 12" },
+              { icon: "Clock", title: "В 15:30", sub: "Сбор гостей" },
+              { icon: "MapPin", title: "ЗАГС Биробиджан", sub: "просп. 60-летия СССР, 26" },
             ].map((item, i) => (
               <div key={i} className="flex flex-col items-center gap-3">
                 <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ backgroundColor: "#e8f4ed" }}>
@@ -127,14 +127,13 @@ export default function Index() {
 
           <div className="mt-10 space-y-0">
             {[
-              { time: "14:30", title: "Сбор гостей", desc: "Шампанское и знакомство" },
-              { time: "15:00", title: "Церемония", desc: "Торжественная регистрация брака" },
-              { time: "16:00", title: "Фуршет", desc: "Лёгкие закуски в саду" },
-              { time: "17:30", title: "Банкет", desc: "Праздничный ужин и танцы" },
-              { time: "19:00", title: "Торт", desc: "Разрезание свадебного торта" },
+              { time: "15:30", title: "Сбор гостей", desc: "просп. 60-летия СССР, 26 · ЗАГС" },
+              { time: "16:00", title: "Бракосочетание", desc: "Торжественная регистрация брака" },
+              { time: "18:00", title: "Банкет", desc: "Лунная, 14 · Ресторан «Околица»" },
+              { time: "20:00", title: "Торт", desc: "Разрезание свадебного торта" },
               { time: "23:00", title: "Завершение", desc: "Финал незабываемого вечера" },
             ].map((item, i) => (
-              <div key={i} className="flex items-start gap-6 py-6" style={{ borderBottom: i < 5 ? "1px solid rgba(181,213,192,0.2)" : "none" }}>
+              <div key={i} className="flex items-start gap-6 py-6" style={{ borderBottom: i < 4 ? "1px solid rgba(181,213,192,0.2)" : "none" }}>
                 <div className="text-right min-w-[60px]">
                   <span className="font-cormorant text-2xl font-light" style={{ color: "#8aab7a" }}>{item.time}</span>
                 </div>
@@ -328,7 +327,7 @@ export default function Index() {
       <footer className="py-12 text-center" style={{ backgroundColor: "#f7faf8", borderTop: "1px solid rgba(181,213,192,0.25)" }}>
         <FloralDecor className="mx-auto mb-4 opacity-20" />
         <p className="font-cormorant italic text-2xl" style={{ color: "rgba(90,138,106,0.5)" }}>Никита & Татьяна</p>
-        <p className="font-raleway text-xs uppercase tracking-widest mt-2" style={{ color: "rgba(90,138,106,0.35)" }}>24 июля 2026 · Усадьба Роз</p>
+        <p className="font-raleway text-xs uppercase tracking-widest mt-2" style={{ color: "rgba(90,138,106,0.35)" }}>24 июля 2026 · Биробиджан</p>
       </footer>
     </div>
   );
