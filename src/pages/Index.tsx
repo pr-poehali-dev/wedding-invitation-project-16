@@ -22,11 +22,23 @@ export default function Index() {
   const [menu, setMenu] = useState("");
   const [alcohol, setAlcohol] = useState("");
   const [dietary, setDietary] = useState("");
+  const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      await fetch("https://functions.poehali.dev/a1492a17-6498-4601-a247-30073f123a86", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ rsvp, menu, alcohol, dietary, name }),
+      });
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -176,6 +188,17 @@ export default function Index() {
           ) : (
             <form onSubmit={handleSubmit} className="mt-10 space-y-8 text-left">
               <div>
+                <label className="font-cormorant text-2xl block mb-3 text-center" style={{ color: "#1a1a1a" }}>Ваше имя</label>
+                <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Имя и фамилия"
+                  required
+                  className="w-full rounded-2xl p-4 font-raleway text-sm focus:outline-none transition-colors"
+                  style={{ backgroundColor: "rgba(255,255,255,0.8)", border: "1px solid rgba(181,213,192,0.5)", color: "#1a1a1a" }}
+                />
+              </div>
+              <div>
                 <label className="font-cormorant text-2xl block mb-4 text-center" style={{ color: "#1a1a1a" }}>Смогу ли я прийти?</label>
                 <div className="grid grid-cols-2 gap-4">
                   {[
@@ -255,10 +278,11 @@ export default function Index() {
 
               <button
                 type="submit"
+                disabled={loading}
                 className="w-full py-4 font-raleway text-xs uppercase tracking-[0.3em] rounded-2xl transition-colors duration-300"
-                style={{ backgroundColor: "#1a1a1a", color: "#fff" }}
+                style={{ backgroundColor: "#1a1a1a", color: "#fff", opacity: loading ? 0.6 : 1 }}
               >
-                Отправить ответ
+                {loading ? "Отправляем..." : "Отправить ответ"}
               </button>
             </form>
           )}
