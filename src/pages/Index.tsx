@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
-const HERO_IMAGE = "https://cdn.poehali.dev/projects/0b729fa5-4eae-4506-985d-85732f9b04a4/files/b165ad50-197b-4c14-b676-f924a8c9cc1b.jpg";
+const HERO_IMAGE = "https://cdn.poehali.dev/projects/0b729fa5-4eae-4506-985d-85732f9b04a4/files/d675bd68-ac87-4a1f-a23a-2502b25f101a.jpg";
 
 const Divider = () => (
   <div className="flex items-center gap-4 my-8">
@@ -141,8 +141,6 @@ export default function Index() {
             {[
               { icon: "Shirt", title: "Дресс-код", text: "Нежные пастельные оттенки. Просим воздержаться от белого цвета." },
               { icon: "Gift", title: "Подарки", text: "Лучший подарок — ваше присутствие. Если хочется порадовать — конверт будет кстати." },
-              { icon: "Car", title: "Парковка", text: "Бесплатная парковка рядом с ЗАГС и рестораном «Околица»." },
-              { icon: "Hotel", title: "Проживание", text: "Если вам нужна помощь с размещением — свяжитесь с организатором." },
             ].map((item, i) => (
               <div key={i} className="rounded-2xl p-8 text-left transition-shadow duration-300 hover:shadow-md" style={{ backgroundColor: "rgba(255,255,255,0.8)", border: "1px solid rgba(181,213,192,0.25)" }}>
                 <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: "#e8f4ed" }}>
