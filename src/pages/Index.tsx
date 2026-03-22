@@ -159,6 +159,7 @@ export default function Index() {
             {[
               { icon: "Shirt", title: "Дресс-код", text: "Приветствуются белые, зелёные и чёрные оттенки." },
               { icon: "Gift", title: "Подарки", text: "Лучший подарок — ваше присутствие. Если хочется порадовать — конверт будет кстати." },
+              { icon: "MapPin", title: "ЗАГС и банкет", text: "Гости могут прибыть как на церемонию в ЗАГС, так и сразу на банкет — по вашему желанию и возможностям." },
             ].map((item, i) => (
               <div key={i} className="rounded-2xl p-8 text-left transition-shadow duration-300 hover:shadow-md" style={{ backgroundColor: "rgba(255,255,255,0.8)", border: "1px solid rgba(181,213,192,0.25)" }}>
                 <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4" style={{ backgroundColor: "#e8f4ed" }}>
