@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/0b729fa5-4eae-4506-985d-85732f9b04a4/files/d675bd68-ac87-4a1f-a23a-2502b25f101a.jpg";
@@ -25,6 +25,37 @@ export default function Index() {
   const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [playing, setPlaying] = useState(false);
+  const [started, setStarted] = useState(false);
+  const playerRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    const handleFirstInteraction = () => {
+      if (!started) {
+        setStarted(true);
+        setPlaying(true);
+        document.removeEventListener("click", handleFirstInteraction);
+        document.removeEventListener("touchstart", handleFirstInteraction);
+      }
+    };
+    document.addEventListener("click", handleFirstInteraction);
+    document.addEventListener("touchstart", handleFirstInteraction);
+    return () => {
+      document.removeEventListener("click", handleFirstInteraction);
+      document.removeEventListener("touchstart", handleFirstInteraction);
+    };
+  }, [started]);
+
+  const togglePlay = () => {
+    const iframe = playerRef.current;
+    if (!iframe) return;
+    if (playing) {
+      iframe.contentWindow?.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    } else {
+      iframe.contentWindow?.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+    }
+    setPlaying(!playing);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -49,6 +80,26 @@ export default function Index() {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}>
+
+      {/* YouTube плеер (скрытый) */}
+      {started && (
+        <iframe
+          ref={playerRef}
+          src="https://www.youtube.com/embed/25jzgNwm_bI?autoplay=1&loop=1&playlist=25jzgNwm_bI&controls=0&enablejsapi=1"
+          allow="autoplay"
+          style={{ position: "absolute", width: 0, height: 0, opacity: 0, pointerEvents: "none" }}
+        />
+      )}
+
+      {/* Кнопка музыки */}
+      <button
+        onClick={togglePlay}
+        className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all duration-300"
+        style={{ backgroundColor: "#1a1a1a", color: "#fff" }}
+        title={playing ? "Пауза" : "Играть"}
+      >
+        <Icon name={playing ? "Pause" : "Music"} size={18} />
+      </button>
 
       {/* HERO */}
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
