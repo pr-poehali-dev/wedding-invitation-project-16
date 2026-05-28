@@ -1,12 +1,22 @@
 import json
 import os
 import smtplib
+import urllib.request
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+TELEGRAM_CHAT_ID = 320956193
+
+
+def send_telegram(token: str, text: str):
+    url = f'https://api.telegram.org/bot{token}/sendMessage'
+    data = json.dumps({'chat_id': TELEGRAM_CHAT_ID, 'text': text, 'parse_mode': 'HTML'}).encode()
+    req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'})
+    urllib.request.urlopen(req)
+
 
 def handler(event: dict, context) -> dict:
-    """Принимает ответ гостя со свадебного приглашения и отправляет его на почту nikita_199579@mail.ru"""
+    """Принимает ответ гостя со свадебного приглашения и отправляет на почту и в Telegram"""
 
     if event.get('httpMethod') == 'OPTIONS':
         return {
@@ -69,6 +79,16 @@ def handler(event: dict, context) -> dict:
     with smtplib.SMTP_SSL('smtp.mail.ru', 465) as server:
         server.login('nikita_199579@mail.ru', os.environ['SMTP_PASSWORD'])
         server.sendmail('nikita_199579@mail.ru', 'nikita_199579@mail.ru', msg.as_string())
+
+    tg_text = (
+        f'💌 <b>Новый ответ гостя</b>\n\n'
+        f'👤 <b>Гость:</b> {name}\n'
+        f'✅ <b>Присутствие:</b> {rsvp_text}\n'
+        f'🍽 <b>Меню:</b> {menu or "не указано"}\n'
+        f'🥂 <b>Напитки:</b> {alcohol or "не указано"}\n'
+        f'📝 <b>Пожелания:</b> {dietary or "нет"}'
+    )
+    send_telegram(os.environ['TELEGRAM_BOT_TOKEN'], tg_text)
 
     return {
         'statusCode': 200,
