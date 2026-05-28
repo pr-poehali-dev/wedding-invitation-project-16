@@ -51,7 +51,7 @@ export default function Index() {
     e.preventDefault();
     setLoading(true);
     try {
-      await fetch("https://functions.poehali.dev/a1492a17-6498-4601-a247-30073f123a86", {
+      await fetch("https://functions.poehali.dev/48d27300-86f4-46f7-bfc8-1a8d86942165", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ rsvp, menu, alcohol, dietary, name }),

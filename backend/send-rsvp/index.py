@@ -30,6 +30,8 @@ def handler(event: dict, context) -> dict:
             'body': ''
         }
 
+    print(f"[RSVP] incoming request, body: {event.get('body')}")
+
     body = json.loads(event.get('body') or '{}')
 
     rsvp = body.get('rsvp', '')
@@ -76,9 +78,13 @@ def handler(event: dict, context) -> dict:
     msg['To'] = 'nikita_199579@mail.ru'
     msg.attach(MIMEText(html, 'html'))
 
-    with smtplib.SMTP_SSL('smtp.mail.ru', 465) as server:
-        server.login('nikita_199579@mail.ru', os.environ['SMTP_PASSWORD'])
-        server.sendmail('nikita_199579@mail.ru', 'nikita_199579@mail.ru', msg.as_string())
+    try:
+        with smtplib.SMTP_SSL('smtp.mail.ru', 465) as server:
+            server.login('nikita_199579@mail.ru', os.environ['SMTP_PASSWORD'])
+            server.sendmail('nikita_199579@mail.ru', 'nikita_199579@mail.ru', msg.as_string())
+        print("[RSVP] email sent OK")
+    except Exception as e:
+        print(f"[RSVP] email ERROR: {e}")
 
     tg_text = (
         f'💌 <b>Новый ответ гостя</b>\n\n'
@@ -88,7 +94,11 @@ def handler(event: dict, context) -> dict:
         f'🥂 <b>Напитки:</b> {alcohol or "не указано"}\n'
         f'📝 <b>Пожелания:</b> {dietary or "нет"}'
     )
-    send_telegram(os.environ['TELEGRAM_BOT_TOKEN'], tg_text)
+    try:
+        send_telegram(os.environ['TELEGRAM_BOT_TOKEN'], tg_text)
+        print("[RSVP] telegram sent OK")
+    except Exception as e:
+        print(f"[RSVP] telegram ERROR: {e}")
 
     return {
         'statusCode': 200,
