@@ -27,24 +27,14 @@ export default function Index() {
   const [loading, setLoading] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [started, setStarted] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
   const playerRef = useRef<HTMLIFrameElement>(null);
 
-  useEffect(() => {
-    const handleFirstInteraction = () => {
-      if (!started) {
-        setStarted(true);
-        setPlaying(true);
-        document.removeEventListener("click", handleFirstInteraction);
-        document.removeEventListener("touchstart", handleFirstInteraction);
-      }
-    };
-    document.addEventListener("click", handleFirstInteraction);
-    document.addEventListener("touchstart", handleFirstInteraction);
-    return () => {
-      document.removeEventListener("click", handleFirstInteraction);
-      document.removeEventListener("touchstart", handleFirstInteraction);
-    };
-  }, [started]);
+  const handleEnter = () => {
+    setShowSplash(false);
+    setStarted(true);
+    setPlaying(true);
+  };
 
   const togglePlay = () => {
     const iframe = playerRef.current;
@@ -71,6 +61,36 @@ export default function Index() {
       setSubmitted(true);
     }
   };
+
+  if (showSplash) {
+    return (
+      <div
+        className="min-h-screen flex flex-col items-center justify-center font-raleway"
+        style={{
+          backgroundColor: "#0d1a12",
+          backgroundImage: `url(${HERO_IMAGE})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0" style={{ backgroundColor: "rgba(10,20,14,0.65)" }} />
+        <div className="relative z-10 text-center px-6">
+          <div className="text-[#b5d5c0] text-6xl mb-6 opacity-60 select-none">❀</div>
+          <p className="font-raleway text-xs uppercase tracking-[0.5em] mb-4" style={{ color: "#8aab7a" }}>Свадебное приглашение</p>
+          <h1 className="font-cormorant text-6xl md:text-8xl font-light mb-2" style={{ color: "#fff" }}>Никита</h1>
+          <p className="font-cormorant italic text-3xl mb-2" style={{ color: "#b5d5c0" }}>&amp;</p>
+          <h1 className="font-cormorant text-6xl md:text-8xl font-light mb-10" style={{ color: "#fff" }}>Татьяна</h1>
+          <button
+            onClick={handleEnter}
+            className="font-raleway text-xs uppercase tracking-[0.4em] px-10 py-4 rounded-full border transition-all duration-500 hover:bg-white hover:text-black"
+            style={{ borderColor: "rgba(181,213,192,0.6)", color: "#fff" }}
+          >
+            Открыть приглашение
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen font-raleway overflow-x-hidden" style={{
